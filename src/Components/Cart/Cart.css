@@ -1,0 +1,15 @@
+.cartHeader{
+    text-align: center;
+}
+.cartdata{
+    background-color: #282c34;
+    min-height: 30vh;
+    display: inline-grid;
+    font-size: calc(10px + 2vmin);
+    width: 400px;
+    color: white;
+    margin-top: 40px;
+    padding-bottom: 30px;
+
+  
+}
