@@ -1,10 +1,13 @@
 import React from "react";
 import classes from "./Header.module.css";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { toggelCartAction } from "../Store/CartSlice";
 const Header = () => {
   const dispatch = useDispatch();
-
+  const totalQuantity = useSelector(
+    (state) => state.additemToCart.totalQuantity
+  );
+  console.log(totalQuantity);
   const toggelCartHandler = () => {
     dispatch(toggelCartAction.togglecart());
   };
@@ -22,7 +25,7 @@ const Header = () => {
             <a href="/">My Sales</a>
           </li>
           <li>
-            <button onClick={toggelCartHandler}>Cart (1)</button>
+            <button onClick={toggelCartHandler}>Cart ({totalQuantity})</button>
           </li>
         </ul>
       </nav>

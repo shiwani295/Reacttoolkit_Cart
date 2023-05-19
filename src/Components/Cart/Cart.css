@@ -13,3 +13,14 @@
 
   
 }
+.AddToCart{
+    background-color: #c7c7c7;
+    min-height: 30vh;
+    display: inline-grid;
+    font-size: calc(10px + 2vmin);
+    width: 400px;
+    color: rgb(15, 15, 15);
+    margin-top: 40px;
+    padding-bottom: 30px;
+
+}
