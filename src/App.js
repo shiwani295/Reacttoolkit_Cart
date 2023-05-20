@@ -5,7 +5,7 @@ import Header from "./Components/Header/Header.js";
 import Addcart from "./Components/Layout/Addcart";
 import { useEffect } from "react";
 import Notification from "./Components/Layout/Notification";
-import { sendCartData } from "./Components/Store/AddItemSlice";
+import { getCartData, sendCartData } from "./Components/Store/FetchAndGetdata";
 let isInitial = true;
 
 function App() {
@@ -13,15 +13,26 @@ function App() {
   const isCartShow = useSelector((state) => state.cart.cartIsVisuble);
   const cartdata = useSelector((state) => state.additemToCart.cartitems);
   const notify = useSelector((state) => state.cart.notification);
+  const cartdatachange = useSelector((state) => state.additemToCart);
+
+  //
+  useEffect(() => {
+    dispatch(getCartData());
+  }, [dispatch]);
+
+  //store the data
   useEffect(() => {
     //this is for nofication show or not
     if (isInitial) {
       isInitial = false;
       return;
     }
-    //this dipatch funtion sendcartdata create inside additemSclice
-    dispatch(sendCartData(cartdata));
-  }, [cartdata, dispatch]);
+
+    if (cartdatachange.change) {
+      console.log(cartdatachange.change);
+      dispatch(sendCartData(cartdata));
+    }
+  }, [cartdata, cartdatachange, dispatch]);
 
   return (
     <>
