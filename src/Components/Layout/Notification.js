@@ -2,7 +2,6 @@ import React from "react";
 import classes from "../Layout/Notification.module.css";
 
 const Notification = (props) => {
-  console.log(props);
   let specialClasses = "";
 
   if (props.status === "pending") {
@@ -11,7 +10,7 @@ const Notification = (props) => {
   if (props.status === "success") {
     specialClasses = classes.success;
   }
-  if (props.status === "Rrror") {
+  if (props.status === "error") {
     specialClasses = classes.error;
   }
 
